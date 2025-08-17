@@ -7,10 +7,10 @@ import csv
 import os
 from datetime import datetime
 
-def FormatoFloat(val): return f"{val:.2f}"
+def FormatoFloat(val): 
+    return f"{val:.2f}"
 
 def csvPrinter(directory, fileName, lastFlow, port, baudrate, timeout):
-
     filePath = os.path.join(directory, fileName)
     ser = serial.Serial(port=port, baudrate=baudrate, timeout=timeout)
     with open(filePath, mode='w', newline='') as file:
@@ -28,14 +28,12 @@ def csvPrinter(directory, fileName, lastFlow, port, baudrate, timeout):
                             flowRateStr, totalMlStr = parts
                             flowRate = float(flowRateStr)
                             totalMl = float(totalMlStr)
-
                             if flowRate != lastFlow:
                                 timeStamp = datetime.now().isoformat()
                                 writer.writerow([timeStamp, FormatoFloat(flowRate), FormatoFloat(totalMl)])
                                 file.flush()
                                 os.fsync(file.fileno())
                                 lastFlow = flowRate
-
                         else: print(f"Formato riga non valido: {line}")
                     except ValueError as e: print(f"Errore nel parsing della riga: {line} - {e}")
         except KeyboardInterrupt: print("Acquisizione terminata")
