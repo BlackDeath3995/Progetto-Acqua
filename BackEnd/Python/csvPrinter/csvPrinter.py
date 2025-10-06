@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     ---------------------------------------------------------------------------------- """
     
-    directory = "G:\\Il mio Drive\\TeamWorking\\ProgettoAcqua\\Projects\\PythonScripts\\csvPrinter\\csvFile"
+    directory = ""
     fileName = f"datiFlusso_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
     lastFlow = None
 
