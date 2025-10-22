@@ -1,17 +1,15 @@
+#include <ESP32WiFi.h>
 
+const char* ssid      = "Ccmp";
+const char* password  = "1234vv633";
 
-#include <ESP8266WiFi.h>
-
-const char* ssid = "Ccmp";
-const char* password = "1234vv633";
-
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   WiFi.begin(ssid, password);
- 
 
-
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED)
+  {
     delay(500);
     Serial.print(".");
   }
@@ -22,5 +20,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 }
 
-void loop() {
+void loop()
+{
+  
 }
